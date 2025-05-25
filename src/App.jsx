@@ -43,11 +43,11 @@ const App = () => {
   return (
     <>
       <div className="h-screen font-[Audiowide] bg-sky-50 text-center">
-        <h1 className="text-7xl uppercase pt-10 pb-75 font-black text-sky-950">
+        <h1 className="text-4xl sm:text-7xl uppercase pt-10 pb-75 font-black text-sky-950">
           StopWatch
         </h1>
         <div className="flex flex-col justify-center items-center gap-20">
-          <p className="text-sky-800 text-7xl sm:text-8xl md:text-9xl font-black">
+          <p className="text-sky-800 text-5xl sm:text-8xl md:text-9xl font-black">
             <span>{hoursCounter < 10 ? "0" + hoursCounter : hoursCounter}</span>
             :
             <span>
@@ -58,7 +58,7 @@ const App = () => {
               {secondsCounter < 10 ? "0" + secondsCounter : secondsCounter}
             </span>
           </p>
-          <div className="flex gap-5 text-3xl text-white font-medium">
+          <div className="flex gap-5 text-base sm:text-3xl text-white font-medium">
             <button
               className="bg-green-500 hover:bg-green-600 py-2 px-4 rounded-xl uppercase cursor-pointer disabled:bg-green-200 disabled:cursor-not-allowed"
               onClick={startWatch}
