@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from "react";
 const App = () => {
   let setIntervalId = useRef(0);
   let [isRunning, setIsRunning] = useState(false);
+  let [hasStarted, setHasStarted] = useState(false);
   let [secondsCounter, setSecondsCounter] = useState(0);
   let [minutesCounter, setMinutesCounter] = useState(0);
   let [hoursCounter, setHoursCounter] = useState(0);
   const startWatch = () => {
     setIsRunning(true);
+    setHasStarted(true);
     setIntervalId.current = setInterval(() => {
       setSecondsCounter((secondsCounter) => secondsCounter + 1);
     }, 1000);
@@ -25,12 +27,13 @@ const App = () => {
     }
   }, [minutesCounter]);
   const stopWatch = () => {
-    setIsRunning(false)
+    setIsRunning(false);
     clearInterval(setIntervalId.current);
     setIntervalId.current = 0;
   };
   const resetWatch = () => {
     setIsRunning(false);
+    setHasStarted(false);
     clearInterval(setIntervalId.current);
     setIntervalId.current = 0;
     setSecondsCounter(0);
@@ -71,9 +74,9 @@ const App = () => {
               Stop
             </button>
             <button
-              className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 rounded-xl uppercase cursor-pointer"
+              className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 rounded-xl uppercase cursor-pointer disabled:bg-yellow-200 disabled:cursor-not-allowed"
               onClick={resetWatch}
-              disabled={!isRunning}
+              disabled={!hasStarted}
             >
               Reset
             </button>
