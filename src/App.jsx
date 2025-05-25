@@ -73,6 +73,7 @@ const App = () => {
             <button
               className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 rounded-xl uppercase cursor-pointer"
               onClick={resetWatch}
+              disabled={!isRunning}
             >
               Reset
             </button>
